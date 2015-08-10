@@ -9,5 +9,10 @@ class Parcel
   define_method(:volume) do
     @width * @height * @depth
   end
-  
+
+  define_method(:cost_to_ship) do
+    @units = self.volume() * @weight
+    @price_per_unit = 0.5
+    @units * @price_per_unit
+  end
 end

@@ -8,11 +8,11 @@ describe(Parcel) do
       expect(@parcel.volume()).to(eq(30))
     end
   end
-  
+
   describe('#cost_to_ship') do
     it('accepts 4 dimensions and returns basic cost') do
       @parcel = Parcel.new(1,1,1,1)
-      expect(@parcel.cost_to_ship()).to(eq(1))
+      expect(@parcel.cost_to_ship()).to(eq(0.5))
     end
   end
 end
