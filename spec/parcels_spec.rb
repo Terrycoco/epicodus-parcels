@@ -12,12 +12,18 @@ describe(Parcel) do
   describe('#cost_to_ship') do
     it('accepts 4 dimensions and returns basic cost') do
       @parcel = Parcel.new(1,1,1,1)
-      expect(@parcel.cost_to_ship()).to(eq(2.10))
+      expect(@parcel.cost_to_ship()).to(eq('2.10'))
     end
 
     it('accepts 4 dimensions and returns basic cost plus up charge') do
       @parcel = Parcel.new(1,1,1,11)
-      expect(@parcel.cost_to_ship()).to(eq(23.65))
+      expect(@parcel.cost_to_ship()).to(eq('23.65'))
     end
+
+    it('accepts 4 dimensions and returns basic cost plus up charge') do
+      @parcel = Parcel.new(1,1,2,11)
+      expect(@parcel.cost_to_ship()).to(eq('48.40'))
+    end
+
   end
 end

@@ -8,9 +8,10 @@ get('/') do
 end
 
 get('/results') do
-  # @a = params.fetch('a').to_f()
-  # @b = params.fetch('b').to_f()
-  # @c = params.fetch('c').to_f()
-  # @result = Triangle.new(@a, @b, @c).type()
+  @width = params.fetch('width').to_f()
+  @height = params.fetch('height').to_f()
+  @depth = params.fetch('depth').to_f()
+  @weight = params.fetch('weight').to_f()
+  @result = Parcel.new(@width, @height, @depth, @weight).cost_to_ship()
   erb(:results)
 end

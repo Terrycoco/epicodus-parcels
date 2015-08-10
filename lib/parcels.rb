@@ -5,9 +5,10 @@ class Parcel
     @depth = depth
     @weight = weight
 
-    @price_per_unit = 2.1
+    #put money in cents to start
+    @price_per_unit = 210
     @upcharge_unit = 10
-    @upcharge = 0.05
+    @upcharge = 5
   end
 
   define_method(:volume) do
@@ -16,9 +17,9 @@ class Parcel
 
   define_method(:cost_to_ship) do
     units = self.volume() * @weight
-    upcharges = units./(@upcharge_unit)
+    upcharges = (units./(@upcharge_unit)).round(0)
     price_per_unit = @price_per_unit + (@upcharge.*(upcharges))
-    basic_cost = units * price_per_unit
-    basic_cost.round(2)
+    basic_cost = (units * price_per_unit) / 100.00
+    "%.2f" % basic_cost
   end
 end
